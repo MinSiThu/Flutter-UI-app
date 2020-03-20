@@ -12,8 +12,25 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CounterPage(),
+      home: _Router(),
     );
   }
 }
 
+class _Router extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(title:Text("MMaterial UI App")),
+      body: Center(child: RaisedButton(
+        child: Text("Counter"),
+        onPressed: (){
+          Navigator.push(
+            context, 
+            MaterialPageRoute(builder: (context)=>CounterPage())
+          );
+        },
+      ),),
+    );
+  }
+}
